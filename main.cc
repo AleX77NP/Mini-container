@@ -105,7 +105,7 @@ int main() {
     clone_process(child, CLONE_NEWPID | CLONE_NEWUTS | CLONE_NEWNS | SIGCHLD );
     // CLONE_NEWPID - isolate shell
     // CLONE_NEWUTS - clone global namespace (UTS)
-    // CLONE_NEWNS - 
+    // CLONE_NEWNS - get copy of parent's mounted filesystem, changes only reflect in child
 
     return EXIT_SUCCESS;
 }
