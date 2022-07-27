@@ -80,9 +80,10 @@ void limitProcessCreation() {
     // max of 5 processes can be created by our child process
 }
 
-int child(void *args) {
+int child(void *args) {    
     limitProcessCreation();
-    printf("child process: %d\n", getpid());
+    
+    printf("child process: %d with user %d\n", getpid(), getuid());
     setHostName("container1"); // change hostname
     setup_variables();
 
@@ -99,7 +100,7 @@ int child(void *args) {
 }
 
 int main() {
-    printf("Hello from parent process! \n");
+    printf("Hello from parent process with user %d! \n", getuid());
     printf("parent %d\n", getpid());
 
     clone_process(child, CLONE_NEWPID | CLONE_NEWUTS | CLONE_NEWNS | SIGCHLD );

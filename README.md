@@ -16,4 +16,4 @@ After you extract this minirootfs, run:
 ```make```
 
 Finally, execute program:
-```./main```
+```sudo ./main```
