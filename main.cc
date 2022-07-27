@@ -100,8 +100,7 @@ int child(void *args) {
 }
 
 int main() {
-    printf("Hello from parent process with user %d! \n", getuid());
-    printf("parent %d\n", getpid());
+    printf("Hello from parent process %d with user %d! \n", getpid(), getuid());
 
     clone_process(child, CLONE_NEWPID | CLONE_NEWUTS | CLONE_NEWNS | SIGCHLD );
     // CLONE_NEWPID - isolate shell
